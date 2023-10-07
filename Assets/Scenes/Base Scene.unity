@@ -336,6 +336,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Left Hand Model
       objectReference: {fileID: 0}
+    - target: {fileID: 109434732395284509, guid: 65847589f926b734d9eaed6e25f0046b,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 109434732395451517, guid: 65847589f926b734d9eaed6e25f0046b,
         type: 3}
       propertyPath: m_RootOrder
@@ -718,6 +723,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Right Hand Model
+      objectReference: {fileID: 0}
+    - target: {fileID: 5686134208185362930, guid: 1fd3a7c43c8190f4d8c167ebde694364,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1fd3a7c43c8190f4d8c167ebde694364, type: 3}
@@ -1311,7 +1321,7 @@ MonoBehaviour:
   NetworkConfig:
     ProtocolVersion: 0
     NetworkTransport: {fileID: 1600744600}
-    PlayerPrefab: {fileID: 2570529970666813677, guid: c7d179e460dbe1c44b03d015658730b0,
+    PlayerPrefab: {fileID: 6869460754417221954, guid: 81ef437779661ea45b6de941a4f55f92,
       type: 3}
     Prefabs:
       NetworkPrefabsLists: []
@@ -2509,6 +2519,7 @@ GameObject:
   - component: {fileID: 3127728408148150629}
   - component: {fileID: 7873184977678273112}
   - component: {fileID: 7873184977678273111}
+  - component: {fileID: 7873184977678273113}
   m_Layer: 2
   m_Name: XR Origin
   m_TagString: Untagged
@@ -2561,6 +2572,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_StartingHoverFilters: []
   m_StartingSelectFilters: []
+--- !u!114 &7873184977678273113
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7696548425071381463}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59d2549bcd96795438632dc36fe47f0c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  root: {fileID: 7696548425071381460}
+  head: {fileID: 9014170784446583432}
+  leftHand: {fileID: 9014170784905458410}
+  rightHand: {fileID: 9014170784276394507}
 --- !u!120 &8340661701477916088
 LineRenderer:
   m_ObjectHideFlags: 0
