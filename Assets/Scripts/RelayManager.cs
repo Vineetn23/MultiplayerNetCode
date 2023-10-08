@@ -48,7 +48,8 @@ public class RelayManager : MonoBehaviour
     {
         JoinAllocation allocation = await RelayService.Instance.JoinAllocationAsync(joinCode);
         transport.SetClientRelayData(allocation.RelayServer.IpV4, (ushort)allocation.RelayServer.Port, allocation.AllocationIdBytes, allocation.Key, allocation.ConnectionData, allocation.HostConnectionData);
-
+        //RelayServerData serverData = new RelayServerData(allocation, "dtls");
+        //transport.SetRelayServerData(serverData);
 
         NetworkManager.Singleton.StartClient();
     }

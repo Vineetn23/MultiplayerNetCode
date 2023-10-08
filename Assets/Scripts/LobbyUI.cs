@@ -33,6 +33,7 @@ public class LobbyUI : MonoBehaviour
 
         AuthenticationManager.Instance.SignIn.AddListener (() => UIEnabler(0));
 
+        quickJoinButton.onClick.AddListener(() => LobbyManager.Instance.QuickJoinLobby());
         createLobbyButton.onClick.AddListener(() => UIEnabler(1));
         lobbyListButton.onClick.AddListener(() => UIEnabler(2));
     }

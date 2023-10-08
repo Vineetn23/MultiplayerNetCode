@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Unity.Services.Lobbies;
 using Unity.Services.Lobbies.Models;
+using Unity.Services.Authentication;
 
 public class LobbyManager : MonoBehaviour
 {
@@ -36,7 +37,7 @@ public class LobbyManager : MonoBehaviour
     {
         Lobby lobby = await Lobbies.Instance.QuickJoinLobbyAsync();
         string relayJoinCode = lobby.Data["Join Code Key"].Value;
-
+        //await AuthenticationService.Instance.SignInAnonymouslyAsync();
         RelayManager.Instance.JoinRelayGame(relayJoinCode);
     }
 
