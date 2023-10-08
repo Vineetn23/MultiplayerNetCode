@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Unity.Netcode;
+using UnityEngine.InputSystem;
 
 public class NetworkSetRandomColor : NetworkBehaviour
 {
@@ -42,6 +43,29 @@ public class NetworkSetRandomColor : NetworkBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (Keyboard.current.spaceKey.wasPressedThisFrame)
+        {
+            RequestUpdateColorServerRpc(new ServerRpcParams());
+        }
+    }
+
+    [ClientRpc]
+    public void UpdateColorClientRpc(ClientRpcParams clientParameters)
+    {
+        if (IsOwner)
+        {
+            networkColor.Value = Random.ColorHSV(0, 1, 1, 1);
+        }
+    }
+
+    [ServerRpc(RequireOwnership = false)]
+    public void RequestUpdateColorServerRpc(ServerRpcParams parameters)
+    {
+        Debug.Log("Sent by " + parameters.Receive.SenderClientId);
+
+        ClientRpcParams clientParameters = new ClientRpcParams();
+        clientParameters.Send.TargetClientIds = new List<ulong>() { 0 };
+
+        UpdateColorClientRpc(clientParameters);
     }
 }
