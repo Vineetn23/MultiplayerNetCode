@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Unity.Services.Authentication;
 using Unity.Services.Core;
+using UnityEngine.Events;
 
 
 #if UNITY_EDITOR
@@ -11,8 +12,12 @@ using ParrelSync;
 
 public class AuthenticationManager : MonoBehaviour
 {
+    public static AuthenticationManager Instance;
+    public UnityEvent SignIn;
+
     private void Awake()
     {
+        Instance = this;
         Login();
     }
 
@@ -34,5 +39,7 @@ public class AuthenticationManager : MonoBehaviour
 
         await UnityServices.InitializeAsync();
         await AuthenticationService.Instance.SignInAnonymouslyAsync();
+
+        SignIn.Invoke();
     }
 }
